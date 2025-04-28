@@ -1,0 +1,200 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.front-page {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: linear-gradient(120deg, #0a0a0a, #2c0000);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background overlay animation */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 0, 0, 0.5) darkred;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Header Section */
+.main-header {
+  text-align: center;
+  padding: 80px 20px 30px;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 2s ease forwards;
+}
+
+.badge {
+  width: 120px;
+  margin-bottom: 10px;
+  margin-top: -80px;
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  margin-top: -40px;
+  margin-bottom: 10px;
+  color: #ff3e3e;
+  text-shadow: 2px 2px #000;
+}
+
+.main-header p {
+  font-size: 1.2rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: #ddd;
+}
+
+/* Intro Section */
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px 20px;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.intro-text, .intro-image {
+  flex: 1 1 300px;
+}
+
+.intro-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ff6161;
+}
+
+.intro-text p {
+  font-family:monospace;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.intro-image img {
+  width: 70%;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+/* Case Info Sections */
+.case-info-section {
+  padding: 50px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.info-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.info-image {
+  flex: 1 1 100px;
+  width: 30%;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.info-text {
+  flex: 1 1 400px;
+  padding: 20px;
+}
+
+.info-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ff6161;
+}
+
+.info-text p {
+  font-family: monospace;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Start Investigation */
+.start-section {
+  text-align: center;
+  margin: 60px 0 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.start-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #ff3e3e, #8b0000);
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: -50px;
+}
+
+.start-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Blood Drip Animation */
+.blood-drip {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #8b0000 30%, #ff0000 70%);
+    border-radius: 50%;
+    top: 0;
+    z-index: 10;
+    animation: drip 4s infinite ease-in;
+    opacity: 0.7;
+}
+
+.drip1 {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.drip2 {
+    left: 80%;
+    animation-delay: 2s;
+}
+
+@keyframes drip {
+    0% {
+        top: -10px;
+        opacity: 0.7;
+    }
+    50% {
+        top: 400px;
+        opacity: 0.5;
+    }
+    100% {
+        top: 800px;
+        opacity: 0;
+    }
+}

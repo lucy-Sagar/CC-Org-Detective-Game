@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Case Selection - CC Organization</title>
+    <link rel="stylesheet" href="selection-style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Roboto:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="case-selection-body">
+    <header class="case-selection-header">
+      <h1>🗂️ Case Files Room</h1>
+      <p>Select a case to start your investigation, Detective.</p>
+    </header>
+
+    <div class="case-grid">
+      <div class="case-card">
+        <img src="images/case-file.png" alt="Case File" class="case-image" />
+        <h2>Case #001: GunShot</h2>
+        <p>
+          A businessman found murdered in his own building. Multiple suspects,
+          twisted secrets.
+        </p>
+        <button onclick="startCase()">Open File</button>
+      </div>
+
+      <!-- Future cases can be added here easily -->
+      <!-- <div class="case-card">...</div> -->
+    </div>
+
+    <script>
+      function startCase() {
+        window.location.href = "case_details.html";
+      }
+    </script>
+  </body>
+</html>

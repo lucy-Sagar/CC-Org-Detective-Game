@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detective Name | CC Organization</title>
+    <link rel="stylesheet" href="name-style.css" />
+    <script defer src="detective_name.js"></script>
+  </head>
+  <body class="detective-body">
+    <div class="detective-container">
+      <h1>Welcome to The CC Organization</h1>
+      <p class="tagline">Choose a name wisely. It will be your identity.</p>
+      <form
+        id="detectiveForm"
+        onsubmit="event.preventDefault(); startInvestigation();"
+      >
+        <input
+          type="text"
+          id="detectiveName"
+          placeholder="Enter your Detective Code Name"
+          required
+        />
+        <button
+          type="submit"
+          class="start-btn"
+          onclick="location.href='case_selection.html'"
+        >
+          Start Investigation
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

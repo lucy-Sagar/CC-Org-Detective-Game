@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Case Details | CC Organization</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="case_details.js"></script>
+  </head>
+  <body class="details-body welcome-body">
+    <div class="case-details-container">
+      <!-- All your existing case detail content here -->
+
+      <div class="details-container">
+        <h1>Case File 001: The GunShot</h1>
+
+        <!-- Victim Section -->
+        <section class="info-box">
+          <div class="left">
+            <img src="images/victim.jpg" alt="Victim" />
+          </div>
+          <div class="right1">
+            <h2>Victim Information</h2>
+            <p><strong>Name:</strong> Mr.John William</p>
+            <p><strong>Age:</strong> 24</p>
+            <p><strong>Profession:</strong> Businessman</p>
+            <p><strong>Time of Death:</strong> Between 9:30 PM - 11:00 PM</p>
+            <p><strong>Cause of Death:</strong>Gun Shot wound to the chest</p>
+          </div>
+        </section>
+
+        <!-- Murder Weapon Section -->
+        <h2>Murder Weapon</h2>
+        <section class="weapon-box">
+          <div class="left">
+            <img src="assets/weapons_table.jpg" alt="Murder Weapon" />
+          </div>
+          <div class="right">
+            <h3>Weapon Details</h3>
+            <p><strong>Type:</strong>Super 38 Pistol</p>
+            <p><strong>Origin:</strong>Unlicensed Weapon</p>
+            <p>
+              <strong>Findings:</strong> Gun was found on murder place, Blood
+              DNA matched the victim.
+            </p>
+            <p><strong>Suspect DNA:</strong> No Partial fingerprint smudged.</p>
+            <p><strong>Analysis:</strong> Killer wore a gloves.</p>
+          </div>
+        </section>
+
+        <!-- Evidence Section -->
+        <h2>Collected Evidence</h2>
+        <section class="info-grid">
+          <div class="evidence-card">
+            <h3>Broken Vase</h3>
+            <p>Fingerprint found on the sharp edge, matched to Dean Walton.</p>
+          </div>
+          <div class="evidence-card">
+            <h3>Hair Sample</h3>
+            <p>Hair under victim's fingernails matched to James Morgan.</p>
+          </div>
+          <div class="evidence-card">
+            <h3>Murder Weapon</h3>
+            <p>No fingerprint, No regestration.</p>
+          </div>
+        </section>
+
+        <!-- Suspect Information -->
+        <h2>Suspects</h2>
+        <section class="info-box">
+          <div class="left">
+            <img src="images/dean_morgan.jpg" alt="Suspect 1" />
+          </div>
+          <div class="right">
+            <h3>James Morgan</h3>
+            <p class="up">
+              Victim's business partner. Had financial issues with John Carter.
+              Hair found under victim's nails indicates a struggle.
+            </p>
+          </div>
+        </section>
+
+        <section class="info-box">
+          <div class="right">
+            <h3>Dean Walton</h3>
+            <p class="down">
+              Victim's old friend. Recently had a major argument at a party.
+              Fingerprints found on broken vase near the body.
+            </p>
+          </div>
+          <div class="left">
+            <img src="images/thomas_graye.jpg" alt="Suspect 2" />
+          </div>
+        </section>
+
+        <section class="info-box">
+          <div class="left">
+            <img src="images/claire_ross.jpg" alt="Suspect 3" />
+          </div>
+          <div class="right">
+            <h3>Sara Kline</h3>
+            <p class="up">
+              Victim’s assistant. Last person to leave building the day before
+              murder. No direct evidence but suspicious movements.
+            </p>
+          </div>
+        </section>
+
+        <!-- Interrogation Summary -->
+        <h2>Suspect Interrogations</h2>
+        <ul class="interrogation-list">
+          <li>
+            <strong>James Morgan:</strong> Nervous during questioning, provided
+            shaky alibi (claimed to be home alone).
+          </li>
+          <li>
+            <strong>Dean Walton:</strong> Claimed drunk and memory blank, but
+            witness saw him leave victim's house.
+          </li>
+          <li>
+            <strong>Sara Kline:</strong> Calm, but refused to provide phone
+            records when asked.
+          </li>
+        </ul>
+
+        <!-- Leads -->
+        <h2>Leads and Observations</h2>
+        <ul class="lead-list">
+          <li>Broken back door lock indicates possible staging.</li>
+          <li>Blood footprints leading to backyard.</li>
+          <li>Security camera facing street turned off at time of murder.</li>
+          <li>Victim received a threatening email a day before murder.</li>
+        </ul>
+        <!-- Solve the Case Section -->
+        <div class="solve-case-box">
+          <h2>Solve the Case</h2>
+          <p>Who do you think committed the crime?</p>
+
+          <select id="suspectSelect">
+            <option value="">-- Select a Suspect --</option>
+            <option value="Dean Walton">Dean Walton</option>
+            <option value="James Carter">James Carter</option>
+            <option value="Sarah Blake">Sarah Blake</option>
+          </select>
+
+          <br /><br />
+          <button onclick="submitSuspect()">Solve This Case</button>
+
+          <p id="resultMessage" class="result-message"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function submitSuspect() {
+        const selected = document.getElementById("suspectSelect").value;
+        const resultMessage = document.getElementById("resultMessage");
+
+        if (selected === "Dean Walton") {
+          window.location.href = "case_solved.html"; // If correct, go to solved page
+        } else if (selected === "") {
+          resultMessage.innerText =
+            "Please select a suspect before submitting, Detective!";
+          resultMessage.style.color = "#ff4d4d";
+        } else {
+          resultMessage.innerText =
+            "Not quite right, Detective! 🕵️‍♂️ Keep digging — the truth is close!";
+          resultMessage.style.color = "#ffa500";
+        }
+      }
+    </script>
+  </body>
+</html>
