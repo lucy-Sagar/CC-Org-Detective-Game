@@ -1,10 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <a href="profile.html" class="view-profile-button">🔍 View Profile</a>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Case Solved! | CC Organization</title>
     <link rel="stylesheet" href="det.style.css" />
+    <style>
+      /* Crime Report Popup */
+      .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 10, 10, 0.85);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .popup-content {
+        background: #111;
+        padding: 30px 20px;
+        max-width: 90%;
+        width: 400px;
+        border-radius: 12px;
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+        position: relative;
+        color: #fff;
+        font-family: "Segoe UI", sans-serif;
+        animation: scaleUp 0.3s ease;
+      }
+
+      .popup-content h2 {
+        margin-bottom: 20px;
+        font-size: 22px;
+        color: crimson;
+      }
+
+      .report-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .report-list li {
+        margin-bottom: 10px;
+        font-size: 15px;
+        border-left: 3px solid crimson;
+        padding-left: 10px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        font-size: 18px;
+        background: transparent;
+        color: crimson;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .close-btn:hover {
+        transform: scale(1.2);
+      }
+    </style>
   </head>
   <body class="solved-body">
     <div class="solved-container">
@@ -19,12 +83,11 @@
       </button>
     </div>
 
-    <div class="crime-report-section">
-      <button id="crimeReportBtn">See Full Crime Report</button>
-
-      <div id="crimeReport" class="crime-report">
-        <h3>Case Breakdown:</h3>
-        <ul>
+    <div id="crimeReportPopup" class="popup-overlay">
+      <div class="popup-content">
+        <button class="close-btn" onclick="closeCrimeReport()">✕</button>
+        <h2>Crime Report</h2>
+        <ul class="report-list">
           <li>
             <strong>Motive:</strong> Financial debt and jealousy towards
             victim's success.
@@ -52,22 +115,23 @@
         </ul>
       </div>
     </div>
+    <button class="report-btn" onclick="openCrimeReport()">
+      View Crime Report
+    </button>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("final-name").innerText =
           localStorage.getItem("detectiveName") || "Detective";
       });
-      document
-        .getElementById("crimeReportBtn")
-        .addEventListener("click", function () {
-          const report = document.getElementById("crimeReport");
-          if (report.style.display === "none" || report.style.display === "") {
-            report.style.display = "block";
-          } else {
-            report.style.display = "none";
-          }
-        });
+
+      function openCrimeReport() {
+        document.getElementById("crimeReportPopup").style.display = "flex";
+      }
+
+      function closeCrimeReport() {
+        document.getElementById("crimeReportPopup").style.display = "none";
+      }
     </script>
   </body>
 </html>

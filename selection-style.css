@@ -99,3 +99,28 @@
   background-color: #cc0000;
   transform: scale(1.05);
 }
+
+.view-profile-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background: linear-gradient(145deg, #8b0000, #b22222);
+  color: #fff;
+  font-family: monospace;
+  font-size: 14px;
+  border: 1.5px solid #ff4d4d;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+  z-index: 999;
+}
+
+.view-profile-button:hover {
+  background: linear-gradient(145deg, #b22222, #8b0000);
+  color: #000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  transform: scale(1.03);
+}

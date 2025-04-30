@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Case - CC Organization</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background: linear-gradient(#0d0d0d, #1a0000);
+        color: #f5f5f5;
+        font-family: "Segoe UI", sans-serif;
+        padding: 2rem;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+      }
+      h1 {
+        text-align: center;
+        color: crimson;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .section {
+        margin: 1.5rem 0;
+      }
+      .section h2 {
+        color: #ff4d4d;
+        font-size: 1.3rem;
+      }
+      .evidence-list,
+      .suspects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .card {
+        background: #1f1f1f;
+        padding: 1rem;
+        border-radius: 0.7rem;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+      }
+      .card img {
+        width: 30%;
+        border-radius: 0.5rem;
+      }
+      .answer-form {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      .answer-form select,
+      .answer-form button {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+        background: #660000;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: #111;
+        color: white;
+        padding: 2rem;
+        border: 2px solid crimson;
+        border-radius: 1rem;
+        z-index: 1000;
+        transition: 0.3s ease-in-out;
+      }
+      .popup.active {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Practice Case File: The Gallery Murder</h1>
+
+      <div class="section">
+        <h2>Crime Scene Summary</h2>
+        <p>
+          The renowned painter, Mr. Elric Dawn, was found dead in his studio. A
+          hammer was discovered next to the body, and his final artwork was
+          partially destroyed. There were signs of a struggle.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Victim Details</h2>
+        <div class="card">
+          <img src="assets/victim_elric.png" alt="Elric Dawn" />
+          <p>
+            Name: Elric Dawn<br />Occupation: Painter<br />Cause of Death: Blunt
+            force trauma
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Evidence</h2>
+        <div class="evidence-list">
+          <div class="card">
+            <img src="assets/hammer_blood.png" alt="Bloody Hammer" />
+            <p>Hammer with traces of blood and a single fingerprint.</p>
+          </div>
+          <div class="card">
+            <img src="assets/torn_painting.png" alt="Torn Painting" />
+            <p>
+              Final painting ripped in anger, initials "L.M." carved on frame
+              edge.
+            </p>
+          </div>
+          <div class="card">
+            <img src="assets/shoeprint.png" alt="Shoeprint" />
+            <p>Shoeprint not matching victim's size found on canvas.</p>
+          </div>
+          <div class="card">
+            <img src="assets/open_wallet.png" alt="Open Wallet" />
+            <p>
+              Wallet missing cash but contains card from business partner Liam
+              Moore.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Suspects</h2>
+        <div class="suspects">
+          <div class="card">
+            <img src="assets/liam_moore.png" alt="Liam Moore" />
+            <p>
+              Liam Moore – Business Partner. Argument overheard day before
+              murder.
+            </p>
+          </div>
+          <div class="card">
+            <img src="assets/nina_artist.png" alt="Nina" />
+            <p>Nina Vell – Rival Artist. Lost contest to Elric recently.</p>
+          </div>
+          <div class="card">
+            <img src="assets/james_janitor.png" alt="James" />
+            <p>James Field – Studio Janitor. Found the body, reported first.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="answer-form">
+        <h2>Who is the Killer?</h2>
+        <select id="suspectSelect">
+          <option value="">Select Suspect</option>
+          <option value="Liam Moore">Liam Moore</option>
+          <option value="Nina Vell">Nina Vell</option>
+          <option value="James Field">James Field</option></select
+        ><br />
+        <button onclick="checkAnswer()">Solve This Case</button>
+      </div>
+
+      <div class="popup" id="popup">
+        <h2>Congratulations!</h2>
+        <p>
+          You cracked your first case! You're ready for real investigations.
+        </p>
+        <button onclick="goToRealCase()">Real Case</button>
+      </div>
+    </div>
+
+    <script>
+      function checkAnswer() {
+        const suspect = document.getElementById("suspectSelect").value;
+        if (suspect === "Liam Moore") {
+          document.getElementById("popup").classList.add("active");
+        } else {
+          alert(
+            "Not quite. Look again at the evidence and find the real motive."
+          );
+        }
+      }
+
+      function goToRealCase() {
+        window.location.href = "case_selection.html";
+      }
+    </script>
+  </body>
+</html>

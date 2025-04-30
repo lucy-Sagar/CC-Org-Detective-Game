@@ -85,47 +85,57 @@ input[type="text"] {
   margin-top: 8px;
 }
 
-.crime-report-section {
+/* Report button */
+.report-btn {
+  margin-top: 20px;
   margin-left: 20px;
-  margin-top: 50px;
-  text-align: center;
-}
-
-#crimeReportBtn {
-  padding: 12px 30px;
-  background-color: #a30000;
-  color: white;
-  font-size: 18px;
+  padding: 10px 25px;
+  font-size: 16px;
   border: none;
+  background: crimson;
+  color: #fff;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background 0.3s ease;
 }
 
-#crimeReportBtn:hover {
-  background-color: #7a0000;
-  transform: scale(1.05);
+.report-btn:hover {
+  background: #c00;
 }
 
-.crime-report {
-  margin-top: 30px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #eee;
-  border-radius: 12px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  display: none; /* Hidden at start */
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.crime-report h3 {
-  text-align: center;
-  margin-bottom: 20px;
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-.crime-report ul {
-  list-style: disc;
-  text-align: left;
-  padding-left: 20px;
+
+.view-profile-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background: linear-gradient(145deg, #8b0000, #b22222);
+  color: #fff;
+  font-family: monospace;
+  font-size: 14px;
+  border: 1.5px solid #ff4d4d;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+  z-index: 999;
+}
+
+.view-profile-button:hover {
+  background: linear-gradient(145deg, #b22222, #8b0000);
+  color: #000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  transform: scale(1.03);
 }
